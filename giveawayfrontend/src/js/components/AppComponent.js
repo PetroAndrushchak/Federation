@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import HeaderComponent from './HeaderComponent';
 
-export default class AppComponent extends Component {
+class AppComponent extends Component {
   render() {
     return (
       <div>
@@ -13,7 +15,16 @@ export default class AppComponent extends Component {
         </div>
 
       </div>
-
     );
   }
 }
+
+const mapStateToProps = state => ({
+  
+});
+
+const mapDispatchToProps = dispatch => ({
+  
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppComponent));

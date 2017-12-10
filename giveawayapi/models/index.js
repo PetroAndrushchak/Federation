@@ -8,4 +8,9 @@ mongoose.connect("mongodb://localhost/giveawayappv2", {
     useMongoClient: true
 });
 
-module.exports.User = require("./user");
+mongoose.connection.on('error',function (err) {  
+   throw err;
+}); 
+
+
+module.exports.User = require( "./user");
