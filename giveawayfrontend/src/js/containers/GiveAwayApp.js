@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer, {getCurrentUser} from '../reducers';
 import {BrowserRouter as Router} from 'react-router-dom';
-import AppComponent from '../components/AppComponent'; 
+import AppComponent from './AppComponent'; 
 import {authenticateUser} from '../actions';
 
 const store = createStore(

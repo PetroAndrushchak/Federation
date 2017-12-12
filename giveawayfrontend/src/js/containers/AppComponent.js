@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import HeaderComponent from './HeaderComponent';
+import HeaderComponent from '../components/HeaderComponent';
+import Main from './Main';
 
 class AppComponent extends Component {
   render() {
@@ -9,9 +10,7 @@ class AppComponent extends Component {
       <div>
         <div>
           <HeaderComponent />
-          <div>
-            MY GIVE AWAY APP
-          </div>
+          <Main/>
         </div>
 
       </div>
