@@ -5,8 +5,11 @@ export const authenticateUser = currentUser => ({
 
 export const signIn = (authInfo) => {
   return (dispatch, getState) => {
-    authRequest(authInfo, 'http://localhost:8085/api/auth/signin"').
-    then(currentUser => dispatch(authenticateUser(currentUser)))
+    authRequest(authInfo, 'http://localhost:8081/api/auth/signin').
+    then(currentUser => {
+      return dispatch(authenticateUser(currentUser))
+  }
+  )
   }
 };
 
