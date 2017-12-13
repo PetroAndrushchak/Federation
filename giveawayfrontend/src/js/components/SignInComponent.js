@@ -57,9 +57,8 @@ const mapDispatchToProps = dispatch => ({
     onSignIn(authData){
         console.log("Sign in!!!!");
         let result = actions.signIn(authData);
-        let result2 = result();
-        return dispatch(result());
-    } 
+        return dispatch(result);
+    }
 });
 
 export default connect(null, mapDispatchToProps)(SignInComponent);

@@ -3,10 +3,33 @@ export const authenticateUser = currentUser => ({
     currentUser
   });
 
-export const signIn = () => (
-  
-);
-
-  function signInRequest(authInfo, url){
-      return Promise.resolve(34);
+export const signIn = (authInfo) => {
+  return (dispatch, getState) => {
+    authRequest(authInfo, 'http://localhost:8085/api/auth/signin"').
+    then(currentUser => dispatch(authenticateUser(currentUser)))
   }
+};
+
+const authRequest = (authInfo, url) => {
+  return fetch(url, {
+    method: "post",
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    }),
+    body: JSON.stringify(authInfo)
+  })
+    .then(resp => {
+      if (!resp.ok) {
+        if (resp.status >= 400 && resp.status < 500) {
+          return resp.json().then(data => {
+            let err = {authErrorMessage: data.message};
+            throw err;
+          })
+        } else {
+          let err = {authErrorMessage: "Please try again later.  Server not responding."};
+          throw err;
+        }
+      }
+      return resp.json();
+    });
+}

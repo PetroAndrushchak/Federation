@@ -1,5 +1,6 @@
 import React from 'react';
 import {Provider} from 'react-redux';
+import thunkMiddleware from 'redux-thunk'
 
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer, {getCurrentUser} from '../reducers';
@@ -8,7 +9,8 @@ import AppComponent from './AppComponent';
 import {authenticateUser} from '../actions';
 
 const store = createStore(
-    rootReducer
+    rootReducer,
+    applyMiddleware(thunkMiddleware)
 );
 
 let user = getCurrentUser();
