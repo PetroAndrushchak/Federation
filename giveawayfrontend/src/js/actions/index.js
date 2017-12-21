@@ -3,15 +3,15 @@ export const authenticateUser = currentUser => ({
     currentUser
   });
 
-export const signIn = (authInfo) => {
-  return (dispatch, getState) => {
+export const signIn = (authInfo) => (
+  (dispatch, getState) => (
     authRequest(authInfo, 'http://localhost:8081/api/auth/signin').
-    then(currentUser => {
-      return dispatch(authenticateUser(currentUser))
-  }
+      then(currentUser => (
+        dispatch(authenticateUser(currentUser))
+      )
+      )
   )
-  }
-};
+);
 
 const authRequest = (authInfo, url) => {
   return fetch(url, {

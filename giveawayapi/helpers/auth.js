@@ -16,6 +16,7 @@ exports.signup = function (req, res, next) {
 };
 
 exports.signin = function (req, res, next) {
+    console.log("BODY" + req.body.email + "  " + req.body.password);
     console.log("Trying to log in");
     db.User.findOne({ email: req.body.email }).then(user => {
         user.comparePassword(req.body.password, (err, isMatch) => {

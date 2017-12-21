@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions'
+
 
 class SignInComponent extends Component {
 
@@ -54,11 +54,7 @@ class SignInComponent extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    onSignIn(authData){
-        console.log("Sign in!!!!");
-        let result = actions.signIn(authData);
-        return dispatch(result);
-    }
+  
 });
 
 export default connect(null, mapDispatchToProps)(SignInComponent);

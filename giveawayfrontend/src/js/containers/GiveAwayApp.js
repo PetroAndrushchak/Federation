@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk'
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer, {getCurrentUser} from '../reducers';
 import {BrowserRouter as Router} from 'react-router-dom';
-import AppComponent from './AppComponent'; 
+import App from './App'; 
 import {authenticateUser} from '../actions';
 
 const store = createStore(
@@ -22,7 +22,7 @@ if(user){
 const GiveAwayApp = () => (
    <Provider store = {store}>
         <Router>
-            <AppComponent/>
+            <App/>
         </Router>
    </Provider> 
 )
