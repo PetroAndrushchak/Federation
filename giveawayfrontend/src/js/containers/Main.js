@@ -2,31 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 
-import * as actions from '../actions'
+import {userActions} from '../actions'
 
 import SignInComponent from '../components/SignInComponent';
 import HomePageComponent from '../components/HomePageComponent';
 
 class Main extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const {
             currentUser,
-            onSignIn,
-            history
+            onSignIn
         } = this.props;
         return (
             <div className="container">
                 <Switch>
                     <Route exact path='/signin' render={(props) => (
                         <SignInComponent onSignIn = {
-                            (signInInfo) => onSignIn(signInInfo).then(() => {
-                                history.push('/')
-                            })
+                            (signInInfo) => onSignIn(signInInfo)
                         }
                         />
                     )} />
@@ -39,20 +32,19 @@ class Main extends Component {
                             />
                         )} />
                 </Switch>
-                <div> sfsdfdsf</div>
+            
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    currentUser: state.currentUser
+    currentUser: state.authentication.currentUser
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onSignIn(authData){
-        console.log("Sign in!!!!");
-        let result = actions.signIn(authData);
+        let result = userActions.login(authData,  ownProps.history);
         let afterDispatch = dispatch(result) 
         return afterDispatch;
     }

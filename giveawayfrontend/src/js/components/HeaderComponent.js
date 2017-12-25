@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
 
 const HeaderComponent = props => {
-    const { currentUser } = props;
+    const { currentUser, onLogout } = props;
     return (
         <nav className="navbar navbar-default">
             <div className="container-fluid">
@@ -14,7 +14,7 @@ const HeaderComponent = props => {
                         currentUser ?
                             <ul className="nav navbar-nav navbar-right">
                                 <li> <a>{currentUser.username} </a></li>
-                                <li><a href="/logout">Logout</a></li>
+                                <li><Link to="/signin" onClick ={ onLogout} >Log out</Link></li>
                             </ul>
                             :
                             <ul className="nav navbar-nav navbar-right">

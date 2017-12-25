@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
 
 class SignInComponent extends Component {
 
@@ -28,6 +26,7 @@ class SignInComponent extends Component {
     render() {
         return (
             <div className="col-sm-4 col-sm-offset-4">
+            <span className="text-danger"> sdfdsf </span>
                 <form onSubmit={this.handleSubmit}>
                     <h2> Log in </h2>
                     <label htmlFor="signin-email">E-mail</label>
@@ -53,8 +52,4 @@ class SignInComponent extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-  
-});
-
-export default connect(null, mapDispatchToProps)(SignInComponent);
+export default SignInComponent;

@@ -1,10 +1,8 @@
 import {combineReducers} from 'redux';
-import currentUser, {getCurrentUser} from './currentUser';
-
-export {getCurrentUser};
+import {authentication} from './authentication';
 
 const rootReducer = combineReducers({
-  currentUser,
+  authentication
 });
 
 export default rootReducer;
